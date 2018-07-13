@@ -13,6 +13,8 @@ import java.util.List;
  *
  * @author Administrateur
  */
+
+
 public class ClientService {
     
     private ClientDAO dao = new ClientDAO();
@@ -23,5 +25,15 @@ public class ClientService {
     
     public List<Client> lister() {
         return dao.lister();
+    }
+    /**
+     * 
+     * cette fonction renvoie le client en db 
+     * @param pseudo
+     * @param mdp
+     * @return 
+     */
+    public Client connexion(String pseudo, String mdp){
+        return dao.findByLoginAndMdp(pseudo, mdp);
     }
 }

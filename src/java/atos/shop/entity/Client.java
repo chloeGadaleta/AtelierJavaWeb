@@ -6,6 +6,7 @@
 package atos.shop.entity;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,54 +24,44 @@ public class Client implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nom;
-    private String prenom;
-    private String rue;
-    private Integer numero;
-    private Integer codePostal;
+//    private String nom;
+//    private String prenom;
+//    private String rue;
+//    private Integer numero;
+//    private Integer codePostal;
+    
+    //contrainte unique sur le login
+    
+    // unique pour être sur qu'il n'y ait pas de doublon sur le login
+    @Column(unique = true)
+    private String login;
+    private String mdp;
+    private String mail;
 
     
     // getter & setter
-    
-    
-    public String getNom() {
-        return nom;
+
+    public String getMail() {
+        return mail;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+    public String getLogin() {
+        return login;
     }
 
-    public String getPrenom() {
-        return prenom;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
+    public String getMdp() {
+        return mdp;
     }
 
-    public String getRue() {
-        return rue;
-    }
-
-    public void setRue(String rue) {
-        this.rue = rue;
-    }
-
-    public Integer getNumero() {
-        return numero;
-    }
-
-    public void setNumero(Integer numero) {
-        this.numero = numero;
-    }
-
-    public Integer getCodePostal() {
-        return codePostal;
-    }
-
-    public void setCodePostal(Integer codePostal) {
-        this.codePostal = codePostal;
+    public void setMdp(String mdp) {
+        this.mdp = mdp;
     }
     
     public Long getId() {

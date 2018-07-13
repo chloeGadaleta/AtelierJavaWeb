@@ -20,7 +20,6 @@ h1 {
     padding: 50px;
 }
 form {
-
     width: 60%;
     margin: 0 auto;
     background-color: blue;
@@ -128,8 +127,110 @@ tr:hover {
     margin-left: 60px;
 }
 
+/* TEMPLATE */
 
-
+.footerTop {
+    display: flex;
+    justify-content: space-around;
+    margin: 40px 60px;
+    border-bottom: #87bfd0 1px solid;
+    padding-bottom: 30px;
+}
+.footerTop article h3 {
+    text-align: center;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #bfbfbf;
+}
+.imgLogo {
+    width: 75%;
+    height: auto;
+}
+.title3 {
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: #87bfd0;
+}
+.listeFooter a{
+    text-decoration: none;
+    color: #a5a1a1;
+}
+.tbNewsletter {
+    padding: 10px 35px;
+}
+.btnLetter {
+    background-color: black;
+    padding: 15px 20px;
+    margin-left: -4px;
+}
+.btnLetter i {
+    color: white;
+}
+.footerBot {
+    display: flex;
+    justify-content: space-around;
+}
+.footerBot article {
+    width: 25%;
+}
+.formClo {
+    padding: 0;
+    margin: 0;
+    background-color: white;
+    width: 25%;
+}
+.bg-light {
+    background-color: white !important;
+}
+header {
+    background-image: url("https://assets.paddle8.com/media/editorial/entry/1419953305-gray-malin-beach-banner.jpeg");
+    color: black;
+    font-weight: 700;
+    padding: 50px 0;
+}
+header h1 {
+    color: black;
+    font-weight: 700;
+}
+main {
+    background: #f3f0f0;
+    padding: 150px 0;
+}
+.form-control {
+    border-radius: 0 !important;
+}
+.btn-outline-success {
+    color: #87bfd0;
+    border-color: #87bfd0;
+}
+.btn {
+    border-radius: 0;
+}
+.btn:hover {
+    background-color: #87bfd0;
+    border: 1px solid #87bfd0;
+}
+.navbar-toggler {
+    border: white;
+}
+.loginForm {
+    background-color: white !important;
+}
+.loginLabel {
+    color: #87bfd0;
+}
+.loginBtn {
+    margin: 0 auto;
+    display: block;
+    padding: 10px 35px;
+    background-color: #87bfd0;
+    border: none;
+}
+.loginMain {
+    background-color: white;
+}
 
 
 @media screen and (max-width: 640px) {

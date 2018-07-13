@@ -22,40 +22,46 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "InscriptionClientServlet", urlPatterns = {"/inscription-client"})
 public class InscriptionClientServlet extends HttpServlet {
     
+    // On appelle notre service
     private ClientService service = new ClientService();
     
     @Override
+    // qd je clic sur btn envoyer sur form ça envoie ds doPost
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
    
        // on reccup le nom du client ds une variable
-       String nomCli= req.getParameter("nom");
-       String prenomCli = req.getParameter("prenom");
-       String adresseCli = req.getParameter("adresse");
-       Integer numero = Integer.parseInt(req.getParameter("numero"));
-       Integer codePostal = Integer.parseInt(req.getParameter("codePostal"));
+       String pseudo = req.getParameter("login");
+       String mail = req.getParameter("mail");
+       String mdp = req.getParameter("mdp");
        
+      
        // création d'un nouveau client
+       // si on doit seulement le reccupérer on le prend ds une variable, on ne fait pas de new.
         Client client = new Client();
         
-       client.setNom(nomCli);
-       client.setPrenom(prenomCli);
-       client.setRue(adresseCli);
-       client.setCodePostal(codePostal);
-       client.setNumero(numero);
-       
+      // ou pour etre sur de reccuperer les bons parametre
+//        client.setLogin(req.getParameter("pseudo"));
+//        client.setMdp(req.getParameter("mdp"));
+//        client.setMail(req.getParameter("mail");
+        
+        client.setLogin(pseudo);
+        client.setMdp(mdp);
+        client.setMail(mail);
+        
+      
        service.ajouter(client);
        
-       resp.sendRedirect("lister-clients");
+       // redirige vers la home une fois que le formulaire est envoyé
+       resp.sendRedirect("home-page");
     }
-
-      // Demander au navigateur de faire une requette http get vers la route de listCatServlet
 
     @Override
+    // on utilise doget car on clic sur lien
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("nomClient", req);
+        
+        // cela nous redirige sur la page du formulaire d'inscription après qu'on est cliqué sur le lien inscription
+        // en passant par cette page ( la servlet)
         req.getRequestDispatcher("ajouter-client.jsp").forward(req, resp);
     }
-
     
-
 }
